@@ -1,3 +1,5 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author 
@@ -6,14 +8,20 @@
 public class TextAnalyzer {
 	private int numOfSentences=0;
 	private int numOfWords=0;
-	private int i = 0;
+	
+	
 	
 	public TextAnalyzer(String text) {
-		while (i<text.length()){
-			if(text.charAt(i)=='.'||text.charAt(i)=='?'||text.charAt(i)=='!') {numOfSentences++;}
-			else if(text.charAt(i)==' '|| text.charAt(i)==',') {numOfWords++;}
-			i++;
-		}
+		Pattern wordPattern = Pattern.compile("\\S+");
+		Matcher wordMatcher = wordPattern.matcher(text);
+		
+		Pattern sentencePattern = Pattern.compile("\\.|\\!|\\?");
+		Matcher sentenceMatcher = sentencePattern.matcher(text);
+		
+		while(wordMatcher.find()) {numOfWords++;}
+	
+	
+		while(sentenceMatcher.find()) {numOfSentences++;}
 	}
 	
 	public int getNumOfSentences(){

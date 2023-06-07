@@ -19,7 +19,7 @@ public class TextAnalysisGUI implements ActionListener {
 		jfrm.setSize(800, 400);  
 		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jfrm.setResizable(false);
-		JLabel prompt = new JLabel("Type or paste your text below.");
+		JLabel prompt = new JLabel("Start typing or copy and paste your text below.");
 		jfrm.add(prompt);
 		
 		this.inputField = new JTextArea(0, 0);
@@ -56,6 +56,10 @@ public class TextAnalysisGUI implements ActionListener {
 			display.append(textAnalyze.toString());
 		}
 		
+		else if(e.getSource() == clear) {
+			display.setText("");
+			inputField.setText("");
+		}
 	}
 
 
