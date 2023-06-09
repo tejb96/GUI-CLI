@@ -2,7 +2,7 @@
 Author: Tej B
 
 ## UML class diagram
-![image3](Screenshot 2023-06-08 170813.jpg)
+![image3](dataAnalysisUML.jpg)
 ## Execution and Testing
 ![image](Screenshot 2023-06-08 163631.jpg)
 ![image2](Screenshot 2023-06-08 164023.jpg)

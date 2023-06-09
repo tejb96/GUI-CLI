@@ -42,7 +42,8 @@ class DataAnalysisCLI {
   + run(): void
 }
 
-DataAnalysisCLI "1" -- "1" DataFrame
-DataFrame "1" --> "1..*" DataSeries
+DataAnalysisCLI --> DataFrame: uses
+DataFrame --> DataSeries: uses
+DataAnalysisCLI --> DataSeries: uses
 
 @enduml
