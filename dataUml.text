@@ -1,0 +1,48 @@
+@startuml
+
+class DataFrame {
+  - headerNames: String[]
+  - numOfRows: int
+  - numOfCols: int
+  - data: double[][]
+  + DataFrame(file: String) 
+  + getHeaderNames(): String[]
+  + getColumnByIndex(index: int): DataSeries
+  + getNumOfRows(): int
+  + getNumOfCols(): int
+  + toString(): String
+}
+
+interface IBasicStats {
+  + getMin(): double
+  + getMax(): double
+  + getSum(): double
+  + getMean(): double
+}
+
+class DataSeries implements IBasicStats {
+  - label: String
+  - data: double[]
+  - count: int
+  + DataSeries(label: String)
+  + add(value: double): void
+  + size(): int
+  + getMin(): double
+  + getMax(): double
+  + getSum(): double
+  + getMean(): double
+  + toString(): String
+}
+
+class DataAnalysisCLI {
+  - data: DataFrame
+  - cli: InteractiveCLI
+  + DataAnalysisCLI()
+  + main(args: String[]): void
+  + run(): void
+}
+
+DataAnalysisCLI "1" -- "1" DataFrame
+DataFrame "1" --> "1..*" DataSeries
+
+@enduml
